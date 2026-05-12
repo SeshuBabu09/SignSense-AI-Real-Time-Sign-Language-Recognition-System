@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup</title>
+  <link rel="stylesheet" href="common.css"/>
+  <link rel="manifest" href="manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+</script>
+
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="h1">Create Account</div>
+      <div class="p">Signup with Email + Password and select domain</div>
+    </div>
+
+    <div class="content">
+      <label>Email</label>
+      <input id="email" type="email" placeholder="example@gmail.com"/>
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Password"/>
+
+      <label>Select Domain</label>
+      <select id="domain">
+        <option value="deaf">Deaf / Dumb (Sign Recognition)</option>
+        <option value="blind">Blind (Voice Assistant)</option>
+      </select>
+
+      <button class="btn" id="btnSignup">Signup</button>
+
+      <div id="msg" class="err"></div>
+
+      <div class="link">
+        Already have account? <a href="login.html">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="common.css"/>
+  <link rel="manifest" href="manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+</script>
+
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="h1">Login</div>
+      <div class="p">Enter your email and password</div>
+    </div>
+
+    <div class="content">
+      <label>Email</label>
+      <input id="email" type="email" placeholder="example@gmail.com"/>
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Password"/>
+
+      <button class="btn" id="btnLogin">Login</button>
+
+      <div id="msg" class="err"></div>
+
+      <div class="link">
+        New user? <a href="signup.html">Signup</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

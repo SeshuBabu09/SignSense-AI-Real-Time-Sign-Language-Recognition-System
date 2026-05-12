@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hand Sign Recognition UI</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">Hand Sign Recognition UI</div>
+  </header>
+  <link rel="manifest" href="manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+</script>
+
+
+  <main class="layout">
+    <!-- LEFT -->
+    <section class="card camera-card">
+      <div class="card-header blue">
+        <div class="header-title">
+          <span class="icon">📷</span>
+          <div>
+            <div class="h1">Camera Feed</div>
+            <div id="cameraStatus" class="sub">Camera inactive</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="camera-body">
+        <img id="videoStream" class="video" alt="camera stream" />
+        <div class="overlay">
+          <div class="overlay-icon">📷</div>
+          <div id="overlayText">Start recognition to activate camera</div>
+        </div>
+      </div>
+
+      <div class="controls card">
+        <div class="controls-title">Controls</div>
+        <div class="btn-row">
+          <button id="btnStart" class="btn green">▶ Start</button>
+          <button id="btnSound" class="btn blue">🔊 Sound On</button>
+          <button id="btnSpeak" class="btn purple">🗣 Speak</button>
+          <button id="btnClear" class="btn orange">🧹 Clear</button>
+          <button id="btnStop" class="btn red">⏹ Stop</button>
+        </div>
+
+        <div class="current">
+          <div class="current-title">Current Recognition</div>
+          <div class="current-box">
+            <div class="label">Prediction:</div>
+            <div id="prediction" class="value">None</div>
+
+            <div class="label">Hand:</div>
+            <div id="hand" class="value">None</div>
+
+            <div class="label">Confidence:</div>
+            <div id="confidence" class="value">0%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT -->
+    <section class="card history-card">
+      <div class="card-header teal">
+        <div class="header-title">
+          <span class="icon">🕘</span>
+          <div>
+            <div class="h1">Recognition History</div>
+            <div id="count" class="sub">0 gestures detected</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="history-body">
+        <div id="emptyState" class="empty">
+          <div class="empty-icon">🕘</div>
+          <div class="empty-title">No gestures recognized yet</div>
+          <div class="empty-sub">Start recognition to see history</div>
+        </div>
+
+        <ul id="historyList" class="history-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="deaf.js"></script>
+</body>
+</html>
